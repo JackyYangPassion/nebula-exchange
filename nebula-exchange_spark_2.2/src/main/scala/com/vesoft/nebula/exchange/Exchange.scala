@@ -102,7 +102,7 @@ object Exchange {
         LOG.info(s"nebula keys: ${nebulaKeys.mkString(", ")}")
 
         val fields = tagConfig.vertexField :: tagConfig.fields
-        val data   = createDataSource(spark, tagConfig.dataSourceConfigEntry, fields)
+        val data   = createDataSource(spark, tagConfig.dataSourceConfigEntry, fields) //根据配置 创建 DataSource
         if (data.isDefined && !c.dry) {
           val startTime = System.currentTimeMillis()
           val batchSuccess =
